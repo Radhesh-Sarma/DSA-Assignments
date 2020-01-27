@@ -6,6 +6,7 @@
   int vis[505][505];
 
   int n, m;
+  //Flood Fill
   void dfs(int x,int y)
   {
     if(x < 1 || x > n || y < 1 || y > m)
@@ -19,9 +20,8 @@
     if(vis[x][y])
       {
         return;
-      }
+      }	
     vis[x][y] = 1;
-    trace2(x,y);
 
 
     dfs(x-1,y);
@@ -45,7 +45,6 @@
     scanf("%lld %lld",&p1,&q1);
     scanf("%lld %lld",&p2,&q2);
 
-    trace4(p1,q1,p2,q2);
 
     if(arr[p1+1][q1+1] == 0)
     {
