@@ -15,7 +15,6 @@
       if(arr[i] == 0)ok = 1;
       freq[arr[i]]++;
     } 
-
     if(ok == 0)
     {
       printf("NO NUMBER");
@@ -31,10 +30,7 @@
           printf("0");
           return 0;
         }
-        while(k--)
-        {
-          printf("%lld",i);
-        }
+        while(k--)printf("%lld",i);
       }
       return 0;
     }
@@ -45,23 +41,13 @@
       int k = freq[i];
       while(k--)
       {
-        if(i%3 == 1)
-        {
-           arr1[len1++] = i;
-        }
-        else if(i%3 == 2)
-        {
-           arr2[len2++] = i;
-        }
+        if(i%3 == 1)arr1[len1++] = i;  
+        else if(i%3 == 2)arr2[len2++] = i;
       }
     }
-
     if(sum%3 == 1)
     {
-      if(len1 >= 1)
-      {
-        freq[arr1[0]]--;
-      }
+      if(len1 >= 1)freq[arr1[0]]--;
       else if(len2 >= 2)
       {
         freq[arr2[0]]--;
@@ -69,17 +55,13 @@
       }
       else
       {
-
         printf("NO NUMBER");
         return 0;
       }
     }
     else 
     {
-      if(len2 >= 1)
-      {
-        freq[arr2[0]]--;
-      }
+      if(len2 >= 1)freq[arr2[0]]--;
       else if(len1 >= 2)
       {
         freq[arr1[0]]--;
@@ -87,7 +69,6 @@
       }
       else
       {
-
         printf("NO NUMBER");
         return 0;
       }
@@ -96,11 +77,7 @@
      for(int i = 9 ; i >= 0; i--)
       {
         int k = freq[i];
-        while(k--)
-        {
-          printf("%lld",i);
-        }
+        while(k--)printf("%lld",i);  
       }
-
     return 0; 
 }
