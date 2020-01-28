@@ -90,6 +90,8 @@
   int32_t main()
   {         
 
+
+  	
    int n;
    scanf("%lld ",&n);
    struct string arr[n+1];
