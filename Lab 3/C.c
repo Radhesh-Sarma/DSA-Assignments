@@ -41,8 +41,6 @@ int32_t main()
 	ans = (ans%MOD * (modInverse(factorial[z]%MOD)%MOD)%MOD);
 	printf("%lld",ans);
 	return 0;
-
-
 }
 
 

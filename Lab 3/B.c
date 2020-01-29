@@ -6,11 +6,11 @@
 
   int arr[N];
 
-  int fun2(int n)
+  int brute(int n)
   {
     if(n == 1) return 1;
-    else if(n%2 == 0) return 1 + fun2(n/2);
-    else return 1 + fun2(3*n+1);
+    else if(n%2 == 0) return 1 + brute(n/2);
+    else return 1 + brute(3*n+1);
   }
 
   int fun(int n)
@@ -19,7 +19,7 @@
     else if(arr[n] != INF)return arr[n];
     else if(n%2 == 0)return arr[n] = 1 + fun(n/2);
     else if(n%2 == 1 && 3*n+1 < N) return arr[n] = 1 + fun(3*n+1);
-    return fun2(n);
+    return brute(n);
   }
 
   int32_t main()

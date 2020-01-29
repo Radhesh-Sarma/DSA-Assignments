@@ -136,7 +136,7 @@ void reverse(struct node** head)
 		}
 	
 	*head = prev;
-}
+	}
 }
 void printlist(struct node** head)
 {
