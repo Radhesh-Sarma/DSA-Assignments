@@ -48,23 +48,23 @@ int getlength(struct node** head)
 }
 struct node* pp;
 
-struct node* getmiddle(struct node** head)
+struct node* split(struct node** head,struct node** temp)
 {
-  struct node* temp = *head;
-  int length = getlength(head);
-  int middle = length/2;
+  struct node* slow = *head;
+  struct node* fast = slow->next;
 
-  int pos = 0;
-
-  while(temp != NULL)
+  while(fast != NULL)
   {
-
-    if(pos == middle)return temp;
-    pos++;
-    pp = temp;
-    temp = temp->next;
+    fast = fast ->next;
+    if(fast != NULL)
+    {
+      slow = slow->next;
+      fast = fast->next;
+    }
   }
-  return temp;
+
+  *temp = slow->next;
+  slow->next = NULL;
 }
 struct node* merge(struct node** head1,struct node** head2)
 {
@@ -103,8 +103,12 @@ void mergesort(struct node** head)
   struct node* temp = *head;
   if(temp == NULL || temp->next == NULL)return;
 
-  struct node* temp1 = getmiddle(head);
-  pp->next = NULL;
+  struct node* temp1,temp2;
+
+
+  split(head,&temp1);
+
+
   mergesort(&temp);
   mergesort(&temp1);
 
