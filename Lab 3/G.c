@@ -50,7 +50,7 @@ int iscutvertex(int node)
 
     scanf("%lld",&mainserver);
     int ans = 1000000000;
-    int ansvertex = 0;
+    int ansvertex = -1;
    for(int i = 0 ; i <= n-1; i++)
    {
     if(i != mainserver)
@@ -63,6 +63,12 @@ int iscutvertex(int node)
         ansvertex = i;
        }
     }
+   }
+   
+   if(ansvertex == -1)
+   {
+      printf("BLACK OUT");
+      return 0;
    }
    printf("%lld",ansvertex);
   }
