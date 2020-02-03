@@ -3,6 +3,7 @@
 #include<stdint.h>
 #define int long long
 #define N 1005
+#define mod 1000000007
 
 int isbitset(int n,int i)
 {
@@ -18,7 +19,9 @@ int32_t main()
 	{
 		scanf("%lld",&arr[i]);
 	}
+
 	int ans = 0;
+
 	for(int i = 0; i <32; i++)
 	{
 			int ans1 = 0;
@@ -27,11 +30,13 @@ int32_t main()
 		{
 			if(isbitset(arr[j],i))
 			{
-					ans1++;
+					ans1 = (ans1 + 1)%mod;
 			}
 		}
 
-		ans += 2*(ans1)*(n-ans1);
+		ans1%=mod;
+
+		ans += (2*(((ans1%mod)*((n-ans1)%mod))%mod))%mod;
 	}
 	printf("%lld",ans);
 	return 0;
