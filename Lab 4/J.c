@@ -7,7 +7,7 @@
 
     int check(int x,int n)
     {
-      if(x*x <= n)
+      if(x<= n/x)
       {
         return 1;
       }
@@ -37,6 +37,8 @@
   {         
 
    
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
 
     int queries;
     scanf("%lld",&queries);

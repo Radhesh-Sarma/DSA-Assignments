@@ -12,10 +12,8 @@ void dfs(int s,int lvl,int dist[])
 {
 
 	if(vis[s])return;
-
 	vis[s] = 1;
 	dist[s] = lvl;
-
 	for(int i = 0; i <= n-1; i++)
 	{
 		if(vis[i] == 0 && adj[s][i] == 1)
@@ -42,16 +40,19 @@ int32_t main()
 	dfs(0,0,dist1);
 
 	int maxnode = 0;
-
+	int dis;
 	for(int i = 0 ; i <= n-1; i++)
 	{
-		if(dist1[maxnode] < dist1[i])
+		if(dist1[maxnode] <= dist1[i])
 		{
 			maxnode = i;
+			dis = dist1[maxnode];
 		}
 		vis[i] = 0;
 	}
-	
+		
+		printf("%lld\n",maxnode);
+
 	dfs(maxnode,0,dist2);
 
 	int ans = 0,ansdist = dist2[ans];

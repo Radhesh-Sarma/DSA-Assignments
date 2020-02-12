@@ -4,14 +4,7 @@
 #define int long long
 #define N 3000006
 int arr[N];
-int pivot = -100000000000;
-int pivotpos = 0;
 
-
-int check(int mid,int x)
-{
-	return arr[mid] < x;
-}
 int binarysearch(int low,int high,int x)
 {
 	while(low <= high)
@@ -21,7 +14,7 @@ int binarysearch(int low,int high,int x)
 		{
 			return mid;
 		}
-		if(check(mid,x))
+		if(arr[mid] < x)
 		{
 			low = mid + 1;
 		}
@@ -33,6 +26,23 @@ int binarysearch(int low,int high,int x)
 	return -1;
 }
 
+int findpivot(int low,int high)
+{
+	while(low <= high)
+	{
+		int mid = low + (high-low)/2;
+		if(arr[mid] > arr[mid-1])return mid;
+
+		if(arr[mid] > arr[0])
+		{
+			low = mid + 1;
+		}
+		else
+		{
+			high = mid + 1;
+		}
+	}
+}
 int32_t main()
 {	
 
@@ -42,12 +52,11 @@ int32_t main()
 	for(int i = 0;i < n; i++)
 	{
 		scanf("%lld",&arr[i]);
-		if(pivot < arr[i])
-			{
-				pivot = arr[i];
-				pivotpos = i;
-			}
 	}
+
+	int pivotpos = findpivot(0,n-1);
+	int pivot = arr[pivotpos];
+
 
 	int x;
 	scanf("%lld",&x);

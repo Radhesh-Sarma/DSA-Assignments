@@ -17,32 +17,6 @@
     if((x-y) < 0)return (y-x);
     return (x-y);
    }
-   int check(double x,double n)
-   {
-    if(x*x <= n)
-    {
-      return 1;
-    }
-    return 0;
-   }
-   double squareroot(double n)
-   {
-    double low = 0;
-    double high = n;
-       while(high - low > eps)
-       {
-           double mid = low + (high-low)/2;
-           if(check(mid,n))
-           {
-               low = mid;
-           }
-           else
-           {
-               high = mid;
-           }
-       }
-       return low;
-   }
   int manhattan(struct pair pt)
   {
     return absolute(mx,pt.x) + absolute(my,pt.y);
