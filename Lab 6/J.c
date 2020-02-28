@@ -3,8 +3,8 @@ struct Node{
 	int id,arrival,time;
 };
 typedef struct Node process;
-process stack[1000000];
-process arr[1000000];
+process stack[1000001];
+process arr[1000001];
 int ans[1000001];
 int top=-1,n;
 void push(process ele)
@@ -49,12 +49,6 @@ int main(int argc, char const *argv[])
             }
         }
     }
-
-    for (int i = 0; i < n; i++)
-    {
-        printf("%d %d %d\n",arr[i].id,arr[i].arrival,arr[i].time);
-    }
-    
     int currTime = 0,i = 0;
     do
     {
